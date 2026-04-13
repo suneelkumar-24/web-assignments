@@ -330,7 +330,7 @@
     <header>
         <div class="logo">📊 Web Assignments Dashboard</div>
         <div class="user-info">
-            <span class="username-badge" id="currentUsername">User</span>
+            <span style="color: white;" class="username-badge" id="currentUsername">User</span>
             <button class="logout-btn" onclick="logout()">Logout</button>
         </div>
     </header>
@@ -338,22 +338,22 @@
     <div class="container">
         <div class="stats-bar">
             <div>
-                <span class="stats-text">📈 Overall Progress</span>
+                <span style="color: white;" class="stats-text">📈 Overall Progress</span>
                 <div class="stats-percent" id="overallPercent">0%</div>
             </div>
-            <div>
-                <span id="completedCount">0</span> / <span id="totalCount">0</span> tasks completed
+            <div style="color: white;">
+                <span  id="completedCount">0</span> / <span id="totalCount">0</span> tasks completed
             </div>
-            <button class="reset-btn" onclick="resetAllProgress()">Reset All Progress</button>
+            <!-- <button class="reset-btn" onclick="resetAllProgress()">Reset All Progress</button> -->
         </div>
 
-        <h2>📄 HTML Assignments <span class="category-progress" id="htmlProgress">0%</span></h2>
+        <h2 style="color: white;">📄 HTML Assignments <span class="category-progress" id="htmlProgress">0%</span></h2>
         <div id="htmlGrid" class="grid"></div>
 
-        <h2>⚡ JavaScript Tasks <span class="category-progress" id="jsProgress">0%</span></h2>
+        <h2 style="color: white;">⚡ JavaScript Tasks <span class="category-progress" id="jsProgress">0%</span></h2>
         <div id="jsGrid" class="grid"></div>
 
-        <h2>💻 Programming Practice <span class="category-progress" id="progProgress">0%</span></h2>
+        <h2 style="color: white;">💻 Programming Practice <span class="category-progress" id="progProgress">0%</span></h2>
         <div id="progGrid" class="grid"></div>
     </div>
 
