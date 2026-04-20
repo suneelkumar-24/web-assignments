@@ -405,7 +405,13 @@
           ⚡ JavaScript Tasks
           <span class="category-progress" id="jsProgress">0%</span>
         </h2>
+
         <div id="jsGrid" class="grid"></div>
+        <h2 style="color: white">
+          🗄️ MySQL Assignments
+          <span class="category-progress" id="mysqlProgress">0%</span>
+        </h2>
+        <div id="mysqlGrid" class="grid"></div>
 
         <h2 style="color: white">
           💻 Programming Practice
@@ -586,8 +592,21 @@
             });
           });
         }
+        // MySQL (ADD THIS SECTION)
+        if (assignmentsData.mysql && Array.isArray(assignmentsData.mysql)) {
+          assignmentsData.mysql.forEach((item, idx) => {
+            const displayName = item.name || `MySQL Task ${idx + 1}`;
+            allTasks.push({
+              id: `mysql_${idx}`,
+              category: "mysql",
+              displayName: displayName,
+              path: item.path,
+              originalIndex: idx,
+              rawItem: item,
+            });
+          });
+        }
       }
-
       function getDisplayNameFromPath(path, type, idx) {
         if (!path) return `Task ${idx + 1}`;
         const fileName = path.split("/").pop();
@@ -697,10 +716,13 @@
           `${getCategoryProgress("js")}%`;
         document.getElementById("progProgress").textContent =
           `${getCategoryProgress("programming")}%`;
+        document.getElementById("mysqlProgress").textContent =
+          `${getCategoryProgress("mysql")}%`;
 
         renderCategoryGrid("html", "htmlGrid");
         renderCategoryGrid("js", "jsGrid");
         renderCategoryGrid("programming", "progGrid");
+        renderCategoryGrid("mysql", "mysqlGrid");
       }
 
       function renderCategoryGrid(category, containerId) {
@@ -925,12 +947,12 @@
           backupDiv.style.display = "flex";
           backupDiv.style.gap = "10px";
           backupDiv.style.alignItems = "center";
-        //   const exportBtn = document.createElement("button");
+          //   const exportBtn = document.createElement("button");
           exportBtn.textContent = "💾 Export Backup";
           exportBtn.className = "reset-btn";
           exportBtn.style.background = "#2c3e66";
           exportBtn.onclick = () => exportProgressToFile();
-        //   const importBtn = document.createElement("button");
+          //   const importBtn = document.createElement("button");
           importBtn.textContent = "📂 Import Backup";
           importBtn.className = "reset-btn";
           importBtn.style.background = "#2c3e66";
